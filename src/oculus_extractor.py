@@ -30,7 +30,7 @@ add_types = {}
 add_types.update(get_types_from_msg(msg_text, 'apl_msgs/msg/RawData'))
 
 # Path to your ROS bag (set it correctly)
-bag_path = Path('blue3_2025-03-19-13-58-48.bag')
+bag_path = Path('bags/blue3_2025-03-19-13-58-48.bag')
 # Define the output path (use color video in example)
 output_path = bag_path.with_suffix('.mp4').with_name("oculus_" + bag_path.name)
 
