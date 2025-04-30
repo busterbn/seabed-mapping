@@ -31,6 +31,8 @@ add_types.update(get_types_from_msg(msg_text, 'apl_msgs/msg/RawData'))
 
 # Path to your ROS bag (set it correctly)
 bag_path = Path('bags/blue3_2025-03-19-13-58-48.bag')
+# bag_path = Path('bags/blue3_2025-03-19-12-57-10.bag')
+
 
 # Define the output path (use color video in example)
 output_path = bag_path.with_suffix('.mp4').with_name("oculus_" + bag_path.name)
@@ -79,6 +81,14 @@ with Reader(bag_path) as reader:
             cart_image_data.y_table: Y coordinate for each pixel in cart_image in m
             """
             cv2.imshow("backscatter", cart_image_data.cart_image)
+            # Convert timestamp (nanoseconds) to whole seconds
+            secs = int(timestamp / 1e9) - 1742392728
+            min = 0
+            while secs >= 60:
+                min += 1
+                secs -= 60
+            frame_filename = f"oculus_frames/oculus_frame_{min}_min_{secs}_sec.png"
+            cv2.imwrite(frame_filename, cart_image_data.cart_image)
             key = cv2.waitKey(10)
             if key & 0xFF == ord('q'):
                 break

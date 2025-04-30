@@ -4,7 +4,8 @@ import subprocess
 from pathlib import Path
 
 # Path to your ROS bag (set it correctly)
-bag_path = Path('bags/blue3_2025-03-19-13-58-48.bag')
+# bag_path = Path('bags/blue3_2025-03-19-13-58-48.bag')
+bag_path = Path('bags/blue3_2025-03-19-12-57-10.bag')
 # Define the output path (use color video in example)
 output_path = bag_path.with_suffix('.mp4').with_name("rgb_" + bag_path.name)
 
