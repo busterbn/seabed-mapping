@@ -1,3 +1,4 @@
 oculus-python>=0.0.2a0
 utm
 matplotlib
+rosbags
